@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 96" width="372" height="96" role="img" aria-label="CubbyDB">
+  <path fill="#3ECF6E" fill-rule="evenodd" d="M26 0h44a26 26 0 0 1 26 26v44a26 26 0 0 1-26 26H26A26 26 0 0 1 0 70V26A26 26 0 0 1 26 0Zm12.9 30.6h18.2a8.6 8.6 0 0 1 8.6 8.6v18.2a8.6 8.6 0 0 1-8.6 8.6H38.9a8.6 8.6 0 0 1-8.6-8.6V39.2a8.6 8.6 0 0 1 8.6-8.6Z"></path>
+  <text x="130" y="48" dominant-baseline="central" font-family="Geist, -apple-system, &#39;Helvetica Neue&#39;, Arial, sans-serif" font-weight="600" font-size="62" letter-spacing="-1.2" fill="#0F1214">CubbyDB</text>
+</svg>
