@@ -2,8 +2,11 @@ import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "./ui/button";
 import { Reveal } from "./reveal";
 import { HeroShot } from "./hero-shot";
+import type { getMacDownload } from "@/lib/releases";
 
-const RELEASES = "https://github.com/ay-chang/cubbyDB/releases/latest";
+type HeroProps = {
+  macDownload: Awaited<ReturnType<typeof getMacDownload>>;
+};
 
 /**
  * Headline, one line of support, two actions, then the product. Nothing in the
@@ -11,7 +14,7 @@ const RELEASES = "https://github.com/ay-chang/cubbyDB/releases/latest";
  * without them the screenshot is the only thing competing with the headline,
  * which is the point.
  */
-export function Hero() {
+export function Hero({ macDownload }: HeroProps) {
   return (
     // Bottom padding lives here rather than on the shot: with the page trimmed
     // to hero-and-footer, the capture would otherwise sit flush on the footer
@@ -35,7 +38,10 @@ export function Hero() {
           index={2}
           className="mt-9 flex flex-wrap items-center justify-center gap-2.5"
         >
-          <Button href={RELEASES}>
+          <Button
+            href={macDownload.href}
+            download={macDownload.isDirectAsset}
+          >
             <ArrowRightIcon size={11} weight="bold" />
             Download for macOS
           </Button>

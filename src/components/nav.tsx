@@ -4,8 +4,7 @@ import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { Logo } from "./ui/logo";
-
-const RELEASES = "https://github.com/ay-chang/cubbyDB/releases/latest";
+import type { getMacDownload } from "@/lib/releases";
 
 /**
  * Empty while the page is hero-only: every section anchor these pointed at is
@@ -13,6 +12,10 @@ const RELEASES = "https://github.com/ay-chang/cubbyDB/releases/latest";
  * when sections come back.
  */
 const SECTIONS: { href: string; label: string }[] = [];
+
+type NavProps = {
+  macDownload: Awaited<ReturnType<typeof getMacDownload>>;
+};
 
 /**
  * Plain mono type rather than boxed pills. With the outer rule gone there is
@@ -22,7 +25,7 @@ const SECTIONS: { href: string; label: string }[] = [];
  * The only bordered thing left is the primary action, which is the one item
  * that should read as pressable.
  */
-export function Nav() {
+export function Nav({ macDownload }: NavProps) {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
 
@@ -73,10 +76,14 @@ export function Nav() {
             GitHub
           </a>
           <a
-            href={RELEASES}
-            target="_blank"
-            rel="noreferrer"
+            href={macDownload.href}
             className="pressable label flex h-8 items-center gap-1.5 rounded-xs border border-ink-block bg-ink-block px-3.5 text-canvas hover:bg-ink"
+            // A resolved asset link downloads on click and shouldn't get the
+            // new-tab treatment; the releases-page fallback is a real page
+            // and should, same as any other external link.
+            {...(macDownload.isDirectAsset
+              ? { download: true }
+              : { target: "_blank", rel: "noreferrer" })}
           >
             <ArrowRightIcon size={11} weight="bold" />
             Download

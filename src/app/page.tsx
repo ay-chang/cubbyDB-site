@@ -1,6 +1,7 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { Footer } from "@/components/footer";
+import { getMacDownload } from "@/lib/releases";
 
 /**
  * v0.1 landing page: what it is, what it looks like, where to get it.
@@ -13,12 +14,16 @@ import { Footer } from "@/components/footer";
  * DataGrip or TablePlus advertises how short the list is. Mount them back when
  * there is something in them worth a competitor's attention.
  */
-export default function Home() {
+export default async function Home() {
+  // Resolved once here, on the server, and threaded to both the nav and hero
+  // download buttons — one fetch instead of two, and both always agree.
+  const macDownload = await getMacDownload();
+
   return (
     <>
-      <Nav />
+      <Nav macDownload={macDownload} />
       <main className="flex-1">
-        <Hero />
+        <Hero macDownload={macDownload} />
       </main>
       <Footer />
     </>
