@@ -16,10 +16,11 @@ type HeroProps = {
  */
 export function Hero({ macDownload }: HeroProps) {
   return (
-    // Bottom padding lives here rather than on the shot: with the page trimmed
-    // to hero-and-footer, the capture would otherwise sit flush on the footer
-    // rule.
-    <section id="top" className="relative pb-28 md:pb-40">
+    // Bottom padding lives here rather than on the shot. It was sized for a
+    // page trimmed to hero-and-footer, where the capture would otherwise have
+    // sat flush on the footer rule; now that a section follows, it only has to
+    // separate the shot from that section's own top padding.
+    <section id="top" className="relative pb-12 md:pb-16">
       <div className="mx-auto max-w-[1500px] px-6 pt-28 text-center md:pt-32">
         <Reveal>
           <h1 className="mx-auto max-w-[16ch] text-[clamp(2.5rem,6.2vw,5.25rem)] font-medium leading-[0.98] tracking-[-0.045em] text-balance">
