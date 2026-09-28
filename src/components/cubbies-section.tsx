@@ -1,6 +1,5 @@
 import { Reveal } from "./reveal";
 import { SectionIntro } from "./section-intro";
-import { Kbd } from "./kbd";
 
 const ENTRIES = [
   { icon: "▦", label: "public.subscriptions", kind: "Table" },
@@ -12,16 +11,16 @@ const ENTRIES = [
 
 const POINTS = [
   {
-    title: "Pointers, never copies",
-    body: "Edit a saved query and every cubby pointing at it reflects the change. Deleting a cubby never deletes what it pointed at.",
+    title: "References, not copies",
+    body: "A cubby stores what a saved query, table, or chat is — not a copy of it. Edit the query elsewhere and every cubby pointing at it stays current. Delete the cubby and the thing it pointed at is untouched.",
   },
   {
-    title: "The schema tree pins itself",
-    body: "The active cubby's tables collect in a group above the tree — additive, so the filter still searches everything.",
+    title: "Its tables sit above your schema tree",
+    body: "Open a cubby and its tables collect in their own section at the top of the tree, so you're not hunting for them — the search box still filters your whole schema, not just what's pinned.",
   },
   {
-    title: "The assistant inherits it",
-    body: "A cubby's tables reach Ask AI in full column detail, even on schemas large enough that everything else gets abbreviated.",
+    title: "Ask AI already knows what's in it",
+    body: "While a cubby is open, its tables go to Ask AI in full column detail on every question — even on a schema large enough that everything else gets abbreviated.",
   },
 ];
 
@@ -90,7 +89,7 @@ export function CubbiesSection() {
             align="left"
             eyebrow="Cubbies"
             title="Put the work down. Pick it back up."
-            lede="A named set of tables, saved queries, AI chats, and structure views for one task. Close the laptop mid-investigation; come back Thursday to the same tabs."
+            lede="A named group of tables, saved queries, AI chats, and structure views for one task. Open it later and every tab comes back at once."
           />
           <Reveal index={1}>
             <dl className="mt-9 flex flex-col gap-6">
@@ -105,19 +104,6 @@ export function CubbiesSection() {
                 </div>
               ))}
             </dl>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[14px] text-[rgba(27,31,38,0.55)]">
-              <span className="flex items-center gap-1.5">
-                <Kbd>⌘</Kbd>
-                <Kbd>D</Kbd>
-                <span className="ml-1">add active tab</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Kbd>⌘</Kbd>
-                <Kbd>⇧</Kbd>
-                <Kbd>C</Kbd>
-                <span className="ml-1">toggle panel</span>
-              </span>
-            </div>
           </Reveal>
         </div>
       </div>

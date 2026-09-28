@@ -1,7 +1,6 @@
 import { FilterDemo } from "./filter-demo";
 import { Reveal } from "./reveal";
 import { SectionIntro } from "./section-intro";
-import { Kbd } from "./kbd";
 
 export function FilterSection() {
   return (
@@ -20,11 +19,6 @@ export function FilterSection() {
               SQL — what ran is right there to read, tweak, or clear. If it
               can&rsquo;t be a filter on this table, it says so and changes
               nothing.
-            </p>
-            <p className="mt-6 flex items-center gap-2 text-[14px] text-[rgba(27,31,38,0.55)]">
-              <Kbd>⌘</Kbd>
-              <Kbd>I</Kbd>
-              <span className="ml-1">while the filter bar is focused</span>
             </p>
           </Reveal>
         </div>
