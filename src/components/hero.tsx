@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SiteHeader } from "./site-header";
+import { HeroHeadline, Rise } from "./hero-motion";
 import type { getMacDownload } from "@/lib/releases";
 
 type HeroProps = {
@@ -16,40 +17,64 @@ export function Hero({ macDownload }: HeroProps) {
       <SiteHeader macDownload={macDownload} />
 
       <div className="relative z-[3] mx-auto max-w-[1320px] px-5 pt-[84px] text-center sm:px-7">
-        <h1 className="mx-auto max-w-[26ch] text-balance font-serif-hero text-[clamp(2.5rem,4.9vw,4.1rem)] leading-[1.06] tracking-[-0.005em] text-[#141820]">
-          Built for how you actually use a database.
-        </h1>
-        <p className="mx-auto mt-[26px] max-w-[78ch] text-balance text-[17px] leading-[1.6] text-[rgba(27,31,38,0.6)]">
-          Including the best AI harness in any database client — schema-aware,
-          read-only by construction, and open source so you can see exactly
-          what it sends.
-        </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href={macDownload.href}
-            {...(macDownload.isDirectAsset
-              ? { download: true }
-              : { target: "_blank", rel: "noreferrer" })}
-            className="rounded-full bg-[#141820] px-8 py-4 text-[15.5px] font-medium text-white"
-            style={{ boxShadow: "0 16px 34px -16px rgba(20,24,32,0.6)" }}
-          >
-            Download for macOS
-          </a>
-          <a
-            href="https://github.com/ay-chang/cubbyDB"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full border border-[rgba(27,31,38,0.14)] bg-[rgba(255,255,255,0.72)] px-8 py-4 text-[15.5px] font-medium text-[#141820]"
-          >
-            View source
-          </a>
-        </div>
-        <p className="mt-[22px] text-[13.5px] text-[rgba(27,31,38,0.5)]">
-          Free and open source · macOS, Windows, Linux
-        </p>
+        <HeroHeadline
+          className="mx-auto max-w-[26ch] text-balance font-serif-hero text-[clamp(2.7rem,5.4vw,4.6rem)] leading-[1.04] tracking-[-0.01em] text-[#141820]"
+          words={[
+            { text: "Built" },
+            { text: "for" },
+            { text: "how" },
+            { text: "you" },
+            { text: "actually", italic: true },
+            { text: "use" },
+            { text: "a" },
+            { text: "database." },
+          ]}
+        />
+        <Rise delay={0.55}>
+          <p className="mx-auto mt-7 max-w-[62ch] text-balance text-[18px] leading-[1.6] text-[rgba(27,31,38,0.58)]">
+            Including the best AI harness in any database client —{" "}
+            <span className="font-medium whitespace-nowrap text-[#141820]">
+              schema-aware
+            </span>,{" "}
+            <span className="font-medium whitespace-nowrap text-[#141820]">
+              read-only by construction
+            </span>
+            , and <span className="font-medium text-[#141820]">open source</span>{" "}
+            so you can see exactly what it sends.
+          </p>
+        </Rise>
+        <Rise delay={0.7}>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={macDownload.href}
+              {...(macDownload.isDirectAsset
+                ? { download: true }
+                : { target: "_blank", rel: "noreferrer" })}
+              className="pressable inline-block rounded-full bg-[#141820] px-8 py-4 text-[15.5px] font-medium text-white hover:-translate-y-px hover:bg-[#232833]"
+              style={{ boxShadow: "0 16px 34px -16px rgba(20,24,32,0.6)" }}
+            >
+              Download for macOS
+            </a>
+            <a
+              href="https://github.com/ay-chang/cubbyDB"
+              target="_blank"
+              rel="noreferrer"
+              className="pressable inline-block rounded-full border border-[rgba(27,31,38,0.14)] bg-[rgba(255,255,255,0.72)] px-8 py-4 text-[15.5px] font-medium text-[#141820] hover:-translate-y-px hover:border-[rgba(27,31,38,0.28)] hover:bg-white"
+            >
+              View source
+            </a>
+          </div>
+          <p className="mt-[22px] text-[13.5px] text-[rgba(27,31,38,0.5)]">
+            Free and open source · macOS, Windows, Linux
+          </p>
+        </Rise>
       </div>
 
-      <div className="relative z-[3] mx-auto max-w-[1240px] px-5 pt-[76px] sm:px-7">
+      <Rise
+        delay={0.9}
+        distance={48}
+        className="relative z-[3] mx-auto max-w-[1240px] px-5 pt-[76px] sm:px-7"
+      >
         <div
           className="rounded-t-[20px] border border-b-0 border-[rgba(27,31,38,0.08)] bg-white p-2 pb-0"
           style={{ boxShadow: "0 50px 110px -55px rgba(38,50,80,0.55)" }}
@@ -65,7 +90,7 @@ export function Hero({ macDownload }: HeroProps) {
             className="block h-auto w-full rounded-t-[13px]"
           />
         </div>
-      </div>
+      </Rise>
     </section>
   );
 }

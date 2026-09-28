@@ -55,7 +55,7 @@ export function AskAiSection() {
 
         {/* The recording is 1920px wide; capping the frame near 1040px keeps
             it close to 1:1 on a 2x display instead of upscaling it soft. */}
-        <Reveal className="mx-auto mt-16 max-w-[1080px]">
+        <Reveal variant="scale" className="mx-auto mt-16 max-w-[1080px]">
           <div
             className="rounded-[28px] border border-[rgba(27,31,38,0.06)] p-2.5 sm:p-3.5"
             style={{

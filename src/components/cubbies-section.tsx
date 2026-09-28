@@ -33,7 +33,7 @@ export function CubbiesSection() {
   return (
     <section id="cubbies" className="relative px-5 pt-[160px] sm:px-7">
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-20">
-        <Reveal className="order-2 lg:order-1">
+        <Reveal variant="scale" className="order-2 lg:order-1">
           <div
             className="rounded-[28px] p-6 sm:p-10"
             style={{
@@ -55,9 +55,12 @@ export function CubbiesSection() {
                 </span>
               </div>
               <ul className="p-2">
-                {ENTRIES.map((entry) => (
-                  <li
+                {ENTRIES.map((entry, i) => (
+                  <Reveal
+                    as="li"
                     key={entry.label}
+                    index={i}
+                    delay={0.35}
                     className="flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-[14px] text-[#1b1f26]"
                   >
                     <span
@@ -69,7 +72,7 @@ export function CubbiesSection() {
                     <span className="ml-auto shrink-0 text-[12px] text-[rgba(27,31,38,0.4)]">
                       {entry.kind}
                     </span>
-                  </li>
+                  </Reveal>
                 ))}
               </ul>
               <div className="flex items-center justify-between border-t border-[rgba(27,31,38,0.07)] px-5 py-3.5">
@@ -91,20 +94,23 @@ export function CubbiesSection() {
             title="Put the work down. Pick it back up."
             lede="A named group of tables, saved queries, AI chats, and structure views for one task. Open it later and every tab comes back at once."
           />
-          <Reveal index={1}>
-            <dl className="mt-9 flex flex-col gap-6">
-              {POINTS.map((point) => (
-                <div key={point.title} className="border-l-2 border-[rgba(34,197,94,0.5)] pl-4">
-                  <dt className="font-sans-ui text-[16px] font-semibold tracking-[-0.01em] text-[#141820]">
-                    {point.title}
-                  </dt>
-                  <dd className="mt-1 text-[15px] leading-[1.6] text-[rgba(27,31,38,0.6)]">
-                    {point.body}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
+          <dl className="mt-9 flex flex-col gap-6">
+            {POINTS.map((point, i) => (
+              <Reveal
+                key={point.title}
+                index={i}
+                delay={0.4}
+                className="border-l-2 border-[rgba(34,197,94,0.5)] pl-4"
+              >
+                <dt className="font-sans-ui text-[16px] font-semibold tracking-[-0.01em] text-[#141820]">
+                  {point.title}
+                </dt>
+                <dd className="mt-1 text-[15px] leading-[1.6] text-[rgba(27,31,38,0.6)]">
+                  {point.body}
+                </dd>
+              </Reveal>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

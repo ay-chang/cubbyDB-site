@@ -5,55 +5,57 @@ import type { ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
-  /** Index within a group, used to stagger siblings by 50ms each. */
+  /** Index within a group; siblings stagger by 90ms each. */
   index?: number;
+  /** Extra seconds before starting, on top of the stagger. */
+  delay?: number;
+  /**
+   * "up" rises and sharpens out of a blur — text and small blocks.
+   * "scale" also grows in from slightly smaller — media frames and cards.
+   */
+  variant?: "up" | "scale";
   className?: string;
   as?: "div" | "li" | "section";
 };
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const FROM = {
+  up: { opacity: 0, y: 28, filter: "blur(6px)" },
+  scale: { opacity: 0, y: 48, scale: 0.96, filter: "blur(8px)" },
+};
+
 /**
- * Scroll-entry reveal. Motivated by hierarchy: content arrives as you reach it
- * rather than being pre-loaded flat on the page. Fires once, never re-plays.
+ * Scroll-entry reveal. Plays once, the first time the block is a little way
+ * into the viewport — the negative bottom margin holds it back until it's
+ * properly on screen, so the motion is actually seen rather than finishing
+ * just below the fold.
  *
- * Uses the full `transform` string rather than Motion's `y` shorthand so the
- * animation is hardware-accelerated and holds up while the page is still
- * loading images.
+ * Reduced motion keeps the opacity fade and drops movement and blur.
  */
 export function Reveal({
   children,
   index = 0,
+  delay = 0,
+  variant = "up",
   className,
   as = "div",
 }: RevealProps) {
   const reduce = useReducedMotion();
   const Component = motion[as];
 
-  if (reduce) {
-    // Reduced motion keeps the opacity fade (it aids comprehension) and drops
-    // every positional change.
-    return (
-      <Component
-        className={className}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.3 }}
-      >
-        {children}
-      </Component>
-    );
-  }
-
   return (
     <Component
       className={className}
-      initial={{ opacity: 0, transform: "translateY(12px)" }}
-      whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-      viewport={{ once: true, amount: 0.2 }}
+      initial={reduce ? { opacity: 0 } : FROM[variant]}
+      whileInView={
+        reduce ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
+      }
+      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
       transition={{
-        duration: 0.5,
-        delay: index * 0.05,
-        ease: [0.23, 1, 0.32, 1],
+        duration: reduce ? 0.4 : variant === "scale" ? 1.1 : 0.85,
+        delay: delay + index * 0.09,
+        ease: EASE,
       }}
     >
       {children}

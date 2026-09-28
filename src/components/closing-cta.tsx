@@ -8,7 +8,7 @@ type ClosingCtaProps = {
 export function ClosingCta({ macDownload }: ClosingCtaProps) {
   return (
     <section className="relative px-5 pt-[180px] pb-24 sm:px-7">
-      <Reveal className="mx-auto max-w-[1180px]">
+      <Reveal variant="scale" className="mx-auto max-w-[1180px]">
         <div
           className="relative overflow-hidden rounded-[32px] bg-[#141820] px-6 py-20 text-center sm:px-12 sm:py-24"
           style={{

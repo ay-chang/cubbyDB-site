@@ -12,7 +12,7 @@ export function FilterSection() {
             eyebrow="Natural-language filters"
             title="English in, SQL in the same box."
           />
-          <Reveal index={1}>
+          <Reveal delay={0.3}>
             <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.65] text-[rgba(27,31,38,0.6)]">
               Toggle ✦ in the filter bar and describe the rows you want. The
               predicate lands in the WHERE field and the bar flips back to
@@ -23,7 +23,7 @@ export function FilterSection() {
           </Reveal>
         </div>
 
-        <Reveal index={2}>
+        <Reveal variant="scale" delay={0.15}>
           <FilterDemo />
         </Reveal>
       </div>

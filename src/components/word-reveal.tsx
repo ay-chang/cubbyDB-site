@@ -41,8 +41,8 @@ export function WordReveal({ text, delay = 0, className }: WordRevealProps) {
       className={className}
       initial="hidden"
       whileInView="shown"
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ staggerChildren: 0.055, delayChildren: delay }}
+      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
+      transition={{ staggerChildren: 0.06, delayChildren: delay }}
     >
       {/* The animated spans are aria-hidden, so the accessible name comes from
           a single uninterrupted copy rather than from words a screen reader
@@ -60,11 +60,12 @@ export function WordReveal({ text, delay = 0, className }: WordRevealProps) {
                       shown: { opacity: 1, transition: { duration: 0.3 } },
                     }
                   : {
-                      hidden: { opacity: 0, y: "0.32em" },
+                      hidden: { opacity: 0, y: "0.28em", filter: "blur(10px)" },
                       shown: {
                         opacity: 1,
                         y: 0,
-                        transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+                        filter: "blur(0px)",
+                        transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
                       },
                     }
               }
