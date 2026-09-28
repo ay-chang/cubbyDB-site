@@ -5,12 +5,13 @@
  * Referenced through an <img>, that text cannot see the page's webfont and
  * silently falls back to Helvetica, so the wordmark would render in the wrong
  * typeface for anyone without Geist installed locally. Splitting it means the
- * mark stays vector and the wordmark uses the real Geist that is already
- * loaded, matching the brand spec exactly: SemiBold 600 at -2% tracking.
+ * mark stays vector and the wordmark uses a real webfont that is already
+ * loaded, matching the brand spec exactly: Instrument Sans 600 at -3%
+ * tracking.
  *
- * The path is the knockout mark verbatim from
- * `brand/mark-knockout/cubbydb-mark-knockout.svg`. Its centre is a genuine
- * hole, so it picks up whatever surface sits behind it.
+ * The path is the knockout mark verbatim from the brand kit's
+ * `icon-green.svg`. Its centre is a genuine hole, so it picks up whatever
+ * surface sits behind it — never fill it in.
  */
 
 type LogoProps = {
@@ -27,8 +28,8 @@ export function Logo({ size = 20, markOnly = false, className = "" }: LogoProps)
       <Mark size={size} />
       {!markOnly && (
         <span
-          className="ml-2 font-semibold tracking-[-0.02em] text-ink"
-          style={{ fontSize: size * 0.86 }}
+          className="ml-2 font-sans-ui font-semibold tracking-[-0.03em] text-ink"
+          style={{ fontSize: size * 0.767 }}
         >
           CubbyDB
         </span>
@@ -42,15 +43,15 @@ export function Mark({ size = 20 }: { size?: number }) {
     <svg
       width={size}
       height={size}
-      viewBox="0 0 256 256"
+      viewBox="0 0 100 100"
       role="img"
       aria-label="CubbyDB"
       className="shrink-0"
     >
       <path
-        fill="#3ECF6E"
+        fill="#22c55e"
         fillRule="evenodd"
-        d="M70 0h116a70 70 0 0 1 70 70v116a70 70 0 0 1-70 70H70a70 70 0 0 1-70-70V70A70 70 0 0 1 70 0Zm34.5 81.5h47a23 23 0 0 1 23 23v47a23 23 0 0 1-23 23h-47a23 23 0 0 1-23-23v-47a23 23 0 0 1 23-23Z"
+        d="M28 4h44a24 24 0 0 1 24 24v44a24 24 0 0 1-24 24H28A24 24 0 0 1 4 72V28A24 24 0 0 1 28 4Zm7 32h30a10 10 0 0 1 10 10v8a10 10 0 0 1-10 10H35a10 10 0 0 1-10-10v-8a10 10 0 0 1 10-10Z"
       />
     </svg>
   );

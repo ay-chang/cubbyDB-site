@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: here,
   },
+  images: {
+    // Next 16 requires every quality a component asks for to be allowlisted.
+    // 90 is for the app screenshot: the default 75 is visibly soft on UI
+    // captures full of small text.
+    qualities: [75, 90],
+  },
 };
 
 export default nextConfig;
