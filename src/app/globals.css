@@ -14,6 +14,16 @@
 :root {
   color-scheme: light;
 
+  /*
+   * Progress of the light→dark scroll transition, 0 = light, 1 = dark.
+   * ScrollBackdrop writes this one number and nothing else; both the page
+   * backdrop and chapter 02's colours are expressed against it in CSS, so
+   * they cannot disagree about how far along the flip is. A build where the
+   * script never runs leaves it at 0 and the whole page stays consistently
+   * in light mode.
+   */
+  --t: 0;
+
   --canvas: #e8eaec;
   --canvas-deep: #e1e4e7;
   --panel: #f1f2f3;
@@ -69,10 +79,14 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-playfair);
+
+  /* Marketing homepage: hero/chapter headlines and the wordmark. */
+  --font-serif-hero: var(--font-instrument-serif);
+  --font-sans-ui: var(--font-instrument-sans);
 }
 
 body {
-  background: var(--canvas);
+  background: #fbfbfc;
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
 }
