@@ -19,30 +19,28 @@ export function Hero({ macDownload }: HeroProps) {
       <SiteHeader macDownload={macDownload} />
 
       <div className="relative z-[3] mx-auto max-w-[1320px] px-5 pt-[84px] text-center sm:px-7">
+        <Rise>
+          <p className="font-mono text-[11px] tracking-[0.18em] text-[#1aa35e] uppercase">
+            Postgres client for Mac, Windows and Linux
+          </p>
+        </Rise>
         <HeroHeadline
-          className="mx-auto max-w-[26ch] text-balance font-serif-hero text-[clamp(2.7rem,5.4vw,4.6rem)] leading-[1.04] tracking-[-0.01em] text-[#141820]"
+          className="mx-auto mt-5 max-w-[22ch] text-balance font-serif-hero text-[clamp(2.7rem,5.4vw,4.6rem)] leading-[1.04] tracking-[-0.01em] text-[#141820]"
           words={[
-            { text: "Built" },
+            { text: "A" },
+            { text: "better" },
+            { text: "home", italic: true },
             { text: "for" },
-            { text: "how" },
-            { text: "you" },
-            { text: "actually", italic: true },
-            { text: "use" },
-            { text: "a" },
-            { text: "database." },
+            { text: "your" },
+            { text: "Postgres" },
+            { text: "databases." },
           ]}
         />
         <Rise delay={0.55}>
-          <p className="mx-auto mt-7 max-w-[62ch] text-balance text-[18px] leading-[1.6] text-[rgba(27,31,38,0.58)]">
-            Including the best AI harness in any database client —{" "}
-            <span className="font-medium whitespace-nowrap text-[#141820]">
-              schema-aware
-            </span>,{" "}
-            <span className="font-medium whitespace-nowrap text-[#141820]">
-              read-only by construction
-            </span>
-            , and it shows you{" "}
-            <span className="font-medium text-[#141820]">every query it runs</span>.
+          <p className="mx-auto mt-7 max-w-[60ch] text-balance text-[18px] leading-[1.6] text-[rgba(27,31,38,0.58)]">
+            Browse, query, and edit your data in a client built for Postgres alone, with an AI
+            assistant that can{" "}
+            <span className="font-medium text-[#141820]">read everything and change nothing</span>.
           </p>
         </Rise>
         <Rise delay={0.7}>
@@ -55,17 +53,17 @@ export function Hero({ macDownload }: HeroProps) {
               className="pressable inline-block rounded-full bg-[#141820] px-8 py-4 text-[15.5px] font-medium text-white hover:-translate-y-px hover:bg-[#232833]"
               style={{ boxShadow: "0 16px 34px -16px rgba(20,24,32,0.6)" }}
             >
-              Download for macOS
+              Download free trial
             </a>
             <Link
               href="/pricing"
               className="pressable inline-block rounded-full border border-[rgba(27,31,38,0.14)] bg-[rgba(255,255,255,0.72)] px-8 py-4 text-[15.5px] font-medium text-[#141820] hover:-translate-y-px hover:border-[rgba(27,31,38,0.28)] hover:bg-white"
             >
-              Buy CubbyDB
+              Buy for {PRICE}
             </Link>
           </div>
           <p className="mt-[22px] text-[13.5px] text-[rgba(27,31,38,0.5)]">
-            Free for {TRIAL_DAYS} days, then {PRICE} once · macOS, Windows, Linux
+            Free for {TRIAL_DAYS} days · No account needed
           </p>
         </Rise>
       </div>
