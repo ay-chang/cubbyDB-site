@@ -26,7 +26,7 @@ export function AiHarnessSection() {
           number="01"
           kicker="The AI harness"
           title="The best AI in any database client."
-          lede="Schema-aware, read-only by construction, and open source so you can see exactly what it sends. Bring your own key or sign in with Codex — every request shows the tables it included, and nothing it produces can modify your data."
+          lede="Schema-aware, read-only by construction, and it shows you every query it runs. Bring your own key or sign in with Codex — every request shows the tables it included, and nothing it produces can modify your data."
         />
       </div>
 

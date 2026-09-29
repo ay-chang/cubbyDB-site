@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
+import { MAX_COMPUTERS, SUPPORT_EMAIL, TRIAL_DAYS } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Terms of Service — CubbyDB",
   description: "The terms that govern your use of CubbyDB and cubbydb.com.",
 };
 
-const EFFECTIVE_DATE = "August 11, 2026";
+const EFFECTIVE_DATE = "September 28, 2026";
 
-// TODO(you): replace with your actual name or business entity, and a real
-// contact address, before publishing. A Terms of Service is a contract
-// between your users and a specific legal person — it can't name a
-// placeholder.
-const RESPONSIBLE_PARTY = "[your name or business entity]";
-const CONTACT_EMAIL = "[contact email]";
+// A Terms of Service is a contract between your users and a specific legal
+// person — switch this to a business entity if you form one.
+const RESPONSIBLE_PARTY = "Allen Chang";
+const CONTACT_EMAIL = SUPPORT_EMAIL;
 
 const SECTIONS: { id: string; title: string }[] = [
   { id: "introduction", title: "Introduction" },
   { id: "the-software", title: "The Software" },
+  { id: "license", title: "Your License" },
+  { id: "purchases", title: "Purchases and Refunds" },
   { id: "ai-providers", title: "AI Features and Third-Party Providers" },
   { id: "acceptable-use", title: "Acceptable Use" },
   { id: "disclaimers", title: "Disclaimers" },
@@ -73,16 +74,52 @@ export default function TermsPage() {
           <h2 className="text-xl font-medium text-ink">The Software</h2>
           <div className="mt-4 flex flex-col gap-4 text-[15px] leading-relaxed text-ink-muted">
             <p>
-              CubbyDB is free, open-source desktop software, licensed under the MIT License. It
-              runs locally on your own device and connects directly to the database and any
-              third-party services you configure — it does not route your database connections,
-              queries, or results through servers we operate.
+              CubbyDB is proprietary desktop software. It runs locally on your own device and
+              connects directly to the database and any third-party services you configure — it
+              does not route your database connections, queries, or results through servers we
+              operate. The only information it sends us is what&rsquo;s needed to activate and
+              periodically re-check a license key.
             </p>
             <p>
-              Your use, copying, modification, and distribution of CubbyDB&rsquo;s source code are
-              governed by the MIT License included with the repository, not by these Terms. These
-              Terms instead cover your use of the built application and this website, including the
-              disclaimers and limits below.
+              You may use CubbyDB free of charge for a {TRIAL_DAYS}-day evaluation period starting
+              from its first launch. Continuing to use it after that period requires a license.
+            </p>
+          </div>
+        </section>
+
+        <section id="license">
+          <h2 className="text-xl font-medium text-ink">Your License</h2>
+          <div className="mt-4 flex flex-col gap-4 text-[15px] leading-relaxed text-ink-muted">
+            <p>
+              CubbyDB is licensed, not sold. Buying a license gives you a personal, perpetual,
+              non-exclusive, non-transferable right to use CubbyDB on up to {MAX_COMPUTERS} devices
+              that you own or control, including updates we release in the future. A license is for
+              one person; each member of a team needs their own.
+            </p>
+            <p>
+              You may not share or resell your license key, or copy, modify, reverse engineer,
+              decompile, or redistribute CubbyDB, or circumvent its trial or licensing checks,
+              except to the extent applicable law expressly permits it. We may deactivate a license
+              key that has been shared publicly, refunded, or charged back.
+            </p>
+          </div>
+        </section>
+
+        <section id="purchases">
+          <h2 className="text-xl font-medium text-ink">Purchases and Refunds</h2>
+          <div className="mt-4 flex flex-col gap-4 text-[15px] leading-relaxed text-ink-muted">
+            <p>
+              Licenses are sold through Polar Software, Inc., which acts as our merchant of record
+              and reseller. Polar processes your payment and collects any applicable sales tax or
+              VAT, and your purchase is also subject to Polar&rsquo;s terms.
+            </p>
+            <p>
+              If CubbyDB isn&rsquo;t right for you, email{" "}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="pressable text-ink hover:text-accent">
+                {CONTACT_EMAIL}
+              </a>{" "}
+              within 30 days of your purchase for a full refund. A refunded license key is
+              deactivated.
             </p>
           </div>
         </section>
@@ -163,8 +200,8 @@ export default function TermsPage() {
               any indirect, incidental, special, consequential, or punitive damages, or any loss of
               data, arising from your use of the Services — including, without limitation, any
               action a third-party AI provider takes against your account. Our total liability for
-              any claim arising from the Services will not exceed the amount you paid us to use
-              them, which, for the free and open-source CubbyDB application, is zero.
+              any claim arising from the Services will not exceed the amount you paid for your
+              CubbyDB license.
             </p>
           </div>
         </section>

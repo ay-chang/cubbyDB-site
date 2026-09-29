@@ -1,7 +1,5 @@
+import Link from "next/link";
 import type { getMacDownload } from "@/lib/releases";
-
-const REPO = "https://github.com/ay-chang/cubbyDB";
-const FEATURES_URL = `${REPO}/blob/main/FEATURES.md`;
 
 type SiteHeaderProps = {
   macDownload: Awaited<ReturnType<typeof getMacDownload>>;
@@ -15,7 +13,7 @@ type SiteHeaderProps = {
 export function SiteHeader({ macDownload }: SiteHeaderProps) {
   return (
     <div className="relative z-[3] mx-auto flex max-w-[1280px] items-center justify-between px-5 py-[26px] sm:px-7">
-      <div className="flex items-center gap-3">
+      <Link href="/" className="flex items-center gap-3">
         <svg
           viewBox="0 0 100 100"
           width={30}
@@ -33,25 +31,21 @@ export function SiteHeader({ macDownload }: SiteHeaderProps) {
         <span className="font-sans-ui text-[23px] leading-none font-semibold tracking-[-0.03em] text-[#141820]">
           CubbyDB
         </span>
-      </div>
+      </Link>
 
       <nav className="flex items-center gap-1.5 text-[14.5px]">
-        <a
-          href={FEATURES_URL}
-          target="_blank"
-          rel="noreferrer"
+        <Link
+          href="/#ask-ai"
           className="hidden rounded-full px-4 py-[9px] text-[rgba(27,31,38,0.7)] transition-colors hover:text-[#1aa35e] sm:inline-block"
         >
           Features
-        </a>
-        <a
-          href={REPO}
-          target="_blank"
-          rel="noreferrer"
-          className="hidden rounded-full px-4 py-[9px] text-[rgba(27,31,38,0.7)] transition-colors hover:text-[#1aa35e] sm:inline-block"
+        </Link>
+        <Link
+          href="/pricing"
+          className="rounded-full px-4 py-[9px] text-[rgba(27,31,38,0.7)] transition-colors hover:text-[#1aa35e]"
         >
-          Github
-        </a>
+          Pricing
+        </Link>
         <a
           href={macDownload.href}
           className="rounded-full border border-[rgba(27,31,38,0.09)] bg-[rgba(255,255,255,0.7)] px-4 py-[9px] text-[#1b1f26] transition-colors hover:text-[#1aa35e]"

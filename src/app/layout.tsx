@@ -32,11 +32,11 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = {
   title: "CubbyDB - a desktop Postgres client that's pleasant to use",
   description:
-    "Schema tree, SQL editor, editable results grid, and a command palette. Free, open source, and native on macOS, Windows, and Linux.",
+    "Schema tree, SQL editor, editable results grid, and a command palette. Native on macOS, Windows, and Linux — try it free for 14 days.",
   openGraph: {
     title: "CubbyDB",
     description:
-      "A desktop Postgres client that's pleasant to use. Free and open source.",
+      "A desktop Postgres client that's pleasant to use. Try it free for 14 days.",
     type: "website",
   },
 };

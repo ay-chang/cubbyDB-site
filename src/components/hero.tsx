@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SiteHeader } from "./site-header";
 import { HeroHeadline, Rise } from "./hero-motion";
 import type { getMacDownload } from "@/lib/releases";
+import { PRICE, TRIAL_DAYS } from "@/lib/pricing";
 
 type HeroProps = {
   macDownload: Awaited<ReturnType<typeof getMacDownload>>;
@@ -39,8 +41,8 @@ export function Hero({ macDownload }: HeroProps) {
             <span className="font-medium whitespace-nowrap text-[#141820]">
               read-only by construction
             </span>
-            , and <span className="font-medium text-[#141820]">open source</span>{" "}
-            so you can see exactly what it sends.
+            , and it shows you{" "}
+            <span className="font-medium text-[#141820]">every query it runs</span>.
           </p>
         </Rise>
         <Rise delay={0.7}>
@@ -55,17 +57,15 @@ export function Hero({ macDownload }: HeroProps) {
             >
               Download for macOS
             </a>
-            <a
-              href="https://github.com/ay-chang/cubbyDB"
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              href="/pricing"
               className="pressable inline-block rounded-full border border-[rgba(27,31,38,0.14)] bg-[rgba(255,255,255,0.72)] px-8 py-4 text-[15.5px] font-medium text-[#141820] hover:-translate-y-px hover:border-[rgba(27,31,38,0.28)] hover:bg-white"
             >
-              View source
-            </a>
+              Buy CubbyDB
+            </Link>
           </div>
           <p className="mt-[22px] text-[13.5px] text-[rgba(27,31,38,0.5)]">
-            Free and open source · macOS, Windows, Linux
+            Free for {TRIAL_DAYS} days, then {PRICE} once · macOS, Windows, Linux
           </p>
         </Rise>
       </div>

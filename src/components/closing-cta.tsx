@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { getMacDownload } from "@/lib/releases";
+import { PRICE, RELEASES_URL, TRIAL_DAYS } from "@/lib/pricing";
 import { Reveal } from "./reveal";
 
 type ClosingCtaProps = {
@@ -33,7 +35,8 @@ export function ClosingCta({ macDownload }: ClosingCtaProps) {
             Open the database you already have.
           </h2>
           <p className="mx-auto mt-5 max-w-[48ch] text-[17px] leading-[1.6] text-[rgba(255,255,255,0.6)]">
-            A free, open-source Postgres client for macOS, Windows, and Linux.
+            A Postgres client for macOS, Windows, and Linux. Free for {TRIAL_DAYS} days, then{" "}
+            {PRICE} once — yours for good.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
@@ -45,20 +48,24 @@ export function ClosingCta({ macDownload }: ClosingCtaProps) {
             >
               Download for macOS
             </a>
+            <Link
+              href="/pricing"
+              className="pressable rounded-full border border-[rgba(255,255,255,0.18)] px-8 py-4 text-[15.5px] font-medium text-white hover:border-[rgba(255,255,255,0.35)]"
+            >
+              Buy CubbyDB
+            </Link>
+          </div>
+          <p className="mt-6 text-[13.5px] text-[rgba(255,255,255,0.4)]">
+            {macDownload.version && <>Version {macDownload.version} · </>}
             <a
-              href="https://github.com/ay-chang/cubbyDB/releases/latest"
+              href={RELEASES_URL}
               target="_blank"
               rel="noreferrer"
-              className="pressable rounded-full border border-[rgba(255,255,255,0.18)] px-8 py-4 text-[15.5px] font-medium text-white hover:border-[rgba(255,255,255,0.35)]"
+              className="underline decoration-[rgba(255,255,255,0.25)] underline-offset-4 transition-colors hover:text-white"
             >
               Windows &amp; Linux
             </a>
-          </div>
-          {macDownload.version && (
-            <p className="mt-6 text-[13.5px] text-[rgba(255,255,255,0.4)]">
-              Version {macDownload.version}
-            </p>
-          )}
+          </p>
         </div>
       </Reveal>
     </section>

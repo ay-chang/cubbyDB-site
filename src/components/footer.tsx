@@ -1,17 +1,10 @@
 import Link from "next/link";
 import type { getMacDownload } from "@/lib/releases";
-
-const REPO = "https://github.com/ay-chang/cubbyDB";
+import { SUPPORT_EMAIL } from "@/lib/pricing";
 
 type FooterProps = {
   macDownload: Awaited<ReturnType<typeof getMacDownload>>;
 };
-
-const EXTERNAL_LINKS = [
-  { href: `${REPO}/blob/main/FEATURES.md`, label: "Features" },
-  { href: REPO, label: "Github" },
-  { href: `${REPO}/releases`, label: "Releases" },
-];
 
 export function Footer({ macDownload }: FooterProps) {
   const linkClass =
@@ -32,21 +25,16 @@ export function Footer({ macDownload }: FooterProps) {
             CubbyDB
           </span>
           <span className="ml-2 text-[rgba(27,31,38,0.45)]">
-            Free and open source
+            A Postgres client for macOS, Windows, and Linux
           </span>
         </div>
         <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
-          {EXTERNAL_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              className={linkClass}
-            >
-              {link.label}
-            </a>
-          ))}
+          <Link href="/#ask-ai" className={linkClass}>
+            Features
+          </Link>
+          <Link href="/pricing" className={linkClass}>
+            Pricing
+          </Link>
           <a
             href={macDownload.href}
             className={linkClass}
@@ -55,6 +43,9 @@ export function Footer({ macDownload }: FooterProps) {
               : { target: "_blank", rel: "noreferrer" })}
           >
             Download
+          </a>
+          <a href={`mailto:${SUPPORT_EMAIL}`} className={linkClass}>
+            Support
           </a>
           <Link href="/terms" className={linkClass}>
             Terms

@@ -6,7 +6,7 @@ import {
 import { Button } from "./ui/button";
 import { Reveal } from "./reveal";
 
-const RELEASES = "https://github.com/ay-chang/cubbyDB/releases/latest";
+const RELEASES = "https://github.com/ay-chang/cubbyDB-releases/releases/latest";
 
 export function DownloadSection() {
   return (

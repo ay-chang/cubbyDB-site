@@ -1,4 +1,5 @@
-const REPO = "ay-chang/cubbyDB";
+// Installers live in their own public repo; the source repo is private.
+const REPO = "ay-chang/cubbyDB-releases";
 const RELEASES_PAGE = `https://github.com/${REPO}/releases/latest`;
 
 type MacDownload = {
