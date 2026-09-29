@@ -59,11 +59,11 @@ export function Hero({ macDownload }: HeroProps) {
               href="/pricing"
               className="pressable inline-block rounded-full border border-[rgba(27,31,38,0.14)] bg-[rgba(255,255,255,0.72)] px-8 py-4 text-[15.5px] font-medium text-[#141820] hover:-translate-y-px hover:border-[rgba(27,31,38,0.28)] hover:bg-white"
             >
-              Buy for {PRICE}
+              Buy once for {PRICE}
             </Link>
           </div>
           <p className="mt-[22px] text-[13.5px] text-[rgba(27,31,38,0.5)]">
-            Free for {TRIAL_DAYS} days · No account needed
+            {TRIAL_DAYS} days free with full access · Then {PRICE} once, no subscription
           </p>
         </Rise>
       </div>
