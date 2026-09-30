@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Instrument_Serif, Instrument_Sans } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Reserved for the statistic numerals and the two section titles. Everything
@@ -60,6 +61,8 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col font-sans">
         {children}
         <div className="grain-overlay" aria-hidden="true" />
+        {/* Cookieless page-view analytics; see /privacy. */}
+        <Analytics />
       </body>
     </html>
   );

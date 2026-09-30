@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "What CubbyDB stores, what it sends, and to whom. No accounts, no analytics, and your database never passes through our servers.",
 };
 
-const EFFECTIVE_DATE = "September 29, 2026";
+const EFFECTIVE_DATE = "September 30, 2026";
 
 // Same legal person as the Terms — change both together if you form a business.
 const RESPONSIBLE_PARTY = "Allen Chang";
@@ -71,7 +71,10 @@ export default function PrivacyPage() {
             (&ldquo;we,&rdquo; &ldquo;us&rdquo;).
           </p>
           <ul className="flex list-disc flex-col gap-2 pl-5">
-            <li>CubbyDB has no user accounts and collects no analytics or usage data.</li>
+            <li>
+              The CubbyDB app has no user accounts and collects no analytics or usage data. The
+              website counts visits without cookies.
+            </li>
             <li>
               It connects directly to your databases. Your connection details, queries, and results
               never pass through a server we operate.
@@ -152,9 +155,11 @@ export default function PrivacyPage() {
         <Section id="website" title="The Website">
           <p>
             cubbydb.com is hosted by Vercel, which keeps standard server logs such as IP address,
-            browser type, and pages requested. The website doesn&rsquo;t use analytics or
-            advertising cookies. Download links point to GitHub, which receives the request when
-            you download CubbyDB.
+            browser type, and pages requested. We use Vercel Web Analytics to count visits: which
+            pages are viewed, which site referred you, and your country, browser, and device type.
+            It doesn&rsquo;t use cookies, doesn&rsquo;t track you across other websites, and
+            doesn&rsquo;t identify you personally. The website has no advertising. Download links
+            point to GitHub, which receives the request when you download CubbyDB.
           </p>
         </Section>
 
