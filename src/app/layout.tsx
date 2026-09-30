@@ -3,6 +3,7 @@ import { Playfair_Display, Instrument_Serif, Instrument_Sans } from "next/font/g
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
+import { PRICE, TRIAL_DAYS } from "@/lib/pricing";
 import "./globals.css";
 
 // Reserved for the statistic numerals and the two section titles. Everything
@@ -34,11 +35,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://cubbydb.com"),
   title: "CubbyDB — A better home for your Postgres databases",
   description:
-    "A Postgres client for Mac, Windows, and Linux with an AI assistant that can read everything and change nothing. Free for 14 days, then $20 once.",
+    `A fast, lightweight Postgres client with a clean, modern feel, and an AI assistant that can read everything and change nothing. Free for ${TRIAL_DAYS} days, then ${PRICE} once.`,
   openGraph: {
     title: "CubbyDB — A better home for your Postgres databases",
     description:
-      "A Postgres client with a read-only AI assistant. Free for 14 days, then $20 once.",
+      `A fast, lightweight Postgres client with a read-only AI assistant. Free for ${TRIAL_DAYS} days, then ${PRICE} once.`,
     type: "website",
     siteName: "CubbyDB",
   },

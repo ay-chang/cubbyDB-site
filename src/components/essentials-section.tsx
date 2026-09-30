@@ -2,7 +2,7 @@ import {
   ClockCounterClockwiseIcon,
   CodeIcon,
   GitDiffIcon,
-  PaletteIcon,
+  LockKeyIcon,
   PencilSimpleIcon,
   PlugsConnectedIcon,
   ShieldCheckIcon,
@@ -56,9 +56,9 @@ const ESSENTIALS = [
     body: "Every query you run is kept, and the ones you care about are a click away.",
   },
   {
-    icon: PaletteIcon,
-    title: "Themes and shortcuts",
-    body: "Eight themes, twenty accent colors, and keyboard shortcuts you can rebind.",
+    icon: LockKeyIcon,
+    title: "Read-only connections",
+    body: "Mark production read-only and CubbyDB blocks every write to it, whatever the database role allows.",
   },
 ];
 

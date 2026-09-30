@@ -38,8 +38,8 @@ export function Hero({ macDownload }: HeroProps) {
         />
         <Rise delay={0.55}>
           <p className="mx-auto mt-7 max-w-[60ch] text-balance text-[18px] leading-[1.6] text-[rgba(27,31,38,0.58)]">
-            Browse, query, and edit your data in a client built for Postgres alone, with an AI
-            assistant that can{" "}
+            A fast, lightweight Postgres client with a clean, modern feel, and an AI assistant
+            that can{" "}
             <span className="font-medium text-[#141820]">read everything and change nothing</span>.
           </p>
         </Rise>

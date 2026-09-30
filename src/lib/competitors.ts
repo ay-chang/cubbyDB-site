@@ -28,7 +28,8 @@ export const TABLEPLUS_ROW: ComparisonRow = {
   platforms: "Mac, Windows, Linux",
 };
 
-/** Paid clients only: free tools compete on experience, not price. */
+/** Buy-once paid clients only. Tools with a free tier (DataGrip, DBeaver,
+ *  Beekeeper) compete on experience, not price, so they aren't listed. */
 export const COMPARISON: ComparisonRow[] = [
   CUBBYDB_ROW,
   TABLEPLUS_ROW,

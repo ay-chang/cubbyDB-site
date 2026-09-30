@@ -2,7 +2,7 @@
  *  own trial length and activation limit live in cubbyDB/src-tauri/src/license.rs
  *  and the price itself in the Polar product, so change those together. */
 export const PRICE = "$20";
-export const TRIAL_DAYS = 14;
+export const TRIAL_DAYS = 7;
 export const MAX_COMPUTERS = 3;
 export const CHECKOUT_URL =
   "https://buy.polar.sh/polar_cl_lHttPwimfYZZawRckC56YSSGGCr9MIWesRoTC123G0h";
