@@ -4,6 +4,8 @@ import { SiteHeader } from "@/components/site-header";
 import { Footer } from "@/components/footer";
 import { HeroHeadline, Rise } from "@/components/hero-motion";
 import { Reveal } from "@/components/reveal";
+import { ComparisonTable } from "@/components/comparison-table";
+import { COMPARISON } from "@/lib/competitors";
 import { getMacDownload } from "@/lib/releases";
 import {
   CHECKOUT_URL,
@@ -152,7 +154,8 @@ export default async function PricingPage() {
                   </span>
                 </div>
                 <p className="mt-3 text-[14.5px] leading-[1.55] text-[rgba(27,31,38,0.58)]">
-                  Pay once, keep it forever. Taxes are calculated at checkout.
+                  Pay once, keep it forever. Other paid Postgres clients cost $69 to $99.
+                  Taxes are calculated at checkout.
                 </p>
               </div>
 
@@ -205,6 +208,20 @@ export default async function PricingPage() {
             </div>
           </div>
         </Rise>
+
+        <section id="compare" className="mx-auto max-w-[980px] scroll-mt-10 px-5 pt-[140px] sm:px-7">
+          <Reveal>
+            <h2 className="text-center font-serif-hero text-[clamp(2rem,3.6vw,3rem)] leading-[1.08] text-[#141820]">
+              How it compares to other paid clients
+            </h2>
+            <p className="mx-auto mt-4 max-w-[52ch] text-center text-[16px] leading-[1.6] text-[rgba(27,31,38,0.6)]">
+              A fraction of the price of other paid clients, with updates that never run out.
+            </p>
+          </Reveal>
+          <Reveal className="mt-10">
+            <ComparisonTable rows={COMPARISON} />
+          </Reveal>
+        </section>
 
         <section className="mx-auto max-w-[1080px] px-5 pt-[140px] sm:px-7">
           <Reveal>

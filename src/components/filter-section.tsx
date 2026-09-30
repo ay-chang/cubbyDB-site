@@ -9,16 +9,16 @@ export function FilterSection() {
         <div>
           <SectionIntro
             align="left"
-            eyebrow="Natural-language filters"
-            title="English in, SQL in the same box."
+            eyebrow="Filters"
+            title="Describe the rows you want."
           />
           <Reveal delay={0.3}>
             <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.65] text-[rgba(27,31,38,0.6)]">
-              Toggle ✦ in the filter bar and describe the rows you want. The
-              predicate lands in the WHERE field and the bar flips back to
-              SQL — what ran is right there to read, tweak, or clear. If it
-              can&rsquo;t be a filter on this table, it says so and changes
-              nothing.
+              Type what you&rsquo;re looking for, like &ldquo;orders over $100 last
+              week,&rdquo; and CubbyDB turns it into a WHERE clause on the table
+              you&rsquo;re viewing. The SQL stays in the filter bar, so you can read
+              it, adjust it, or clear it. Prefer writing SQL yourself? The same bar
+              takes that too.
             </p>
           </Reveal>
         </div>

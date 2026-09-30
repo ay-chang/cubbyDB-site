@@ -7,8 +7,9 @@ import { Footer } from "@/components/footer";
 import { getMacDownload } from "@/lib/releases";
 
 /**
- * Homepage: hero and product shot, then the AI assistant, natural-language
- * filters, cubbies, and a closing download CTA. One light page throughout.
+ * Homepage: hero and product shot, the three features nobody else has (Ask AI,
+ * natural-language filters, cubbies), and a closing download CTA. The
+ * everyday essentials and privacy live on /features.
  */
 export default async function Home() {
   const macDownload = await getMacDownload();

@@ -5,43 +5,42 @@ import { SectionIntro } from "./section-intro";
 
 /**
  * Ordered the way a skeptic asks: can it hurt me, does it know my database,
- * can I check its work. Safety leads because it is the one claim that is
- * structural rather than a quality judgement.
+ * can I check its work.
  */
 const PILLARS = [
   {
     icon: LockKeyIcon,
-    title: "Read-only by construction",
-    body: "There's no write path for it to reach — not a prompt that could be talked around.",
+    title: "It can't change your data",
+    body: "Not a setting, and not a prompt it could be talked out of. The assistant has no way to write.",
     points: [
-      "No write methods exposed to the tool layer",
-      "SELECT-family statements only, allowlisted",
-      "Runs in a READ ONLY transaction, always rolled back",
+      "Only SELECT-style queries are allowed",
+      "Every query runs in a read-only transaction",
+      "Changes it suggests are written out for you to run",
     ],
   },
   {
     icon: TreeStructureIcon,
-    title: "Knows your schema",
-    body: "Your real structure goes in with the question, so it joins on keys you actually have.",
+    title: "It knows your database",
+    body: "Your real tables and relationships go in with every question, so its joins use keys you actually have.",
     points: [
-      "Tables, columns, types, nullability, foreign keys",
-      "Enum values and row estimates",
-      "Pulls deeper detail on demand for large schemas",
+      "Tables, columns, types, and foreign keys",
+      "Enum values and rough row counts",
+      "Your app's code too, if you attach a repo",
     ],
   },
   {
     icon: EyeIcon,
-    title: "Shows its work",
-    body: "The answer is never the only thing you get. Every step carries the statement behind it.",
+    title: "It shows its work",
+    body: "You never get just an answer. Every step comes with the query behind it.",
     points: [
-      "The exact SQL and row count, step by step",
+      "The exact SQL and row count for each step",
       "Open any query in the editor and keep going",
-      "Export the full result set as CSV",
+      "Export the full result as a CSV",
     ],
   },
 ];
 
-const PROVIDERS = ["Anthropic key", "OpenAI key", "Claude subscription", "ChatGPT subscription"];
+const PROVIDERS = ["Claude subscription", "ChatGPT subscription", "Anthropic key", "OpenAI key"];
 
 export function AskAiSection() {
   return (
@@ -50,7 +49,7 @@ export function AskAiSection() {
         <SectionIntro
           eyebrow="Ask AI"
           title="Ask anything. Change nothing."
-          lede="An assistant that reads your schema, writes the SQL, and shows you every query it ran. Modifying your data isn't a setting it respects — it's something it cannot do."
+          lede="Ask a question in plain English. The assistant looks at your schema, writes the SQL, runs it, and shows you every query along the way. It can read your data, but it has no way to change it."
         />
 
         {/* The recording is 1920px wide; capping the frame near 1040px keeps
@@ -105,7 +104,7 @@ export function AskAiSection() {
         </div>
 
         <Reveal className="mt-16 flex flex-wrap items-center justify-center gap-2.5 text-[14px] text-[rgba(27,31,38,0.55)]">
-          <span className="mr-1">Bring your own model</span>
+          <span className="mr-1">Works with</span>
           {PROVIDERS.map((provider) => (
             <span
               key={provider}
@@ -114,7 +113,7 @@ export function AskAiSection() {
               {provider}
             </span>
           ))}
-          <span className="ml-1">· your key stays on your machine</span>
+          <span className="ml-1">· no extra AI bill if you already subscribe</span>
         </Reveal>
       </div>
     </section>

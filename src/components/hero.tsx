@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "./site-header";
 import { HeroHeadline, Rise } from "./hero-motion";
 import type { getMacDownload } from "@/lib/releases";
-import { PRICE, TRIAL_DAYS } from "@/lib/pricing";
+import { PRICE } from "@/lib/pricing";
 
 type HeroProps = {
   macDownload: Awaited<ReturnType<typeof getMacDownload>>;
@@ -62,9 +62,6 @@ export function Hero({ macDownload }: HeroProps) {
               Buy once for {PRICE}
             </Link>
           </div>
-          <p className="mt-[22px] text-[13.5px] text-[rgba(27,31,38,0.5)]">
-            {TRIAL_DAYS} days free with full access · Then {PRICE} once, no subscription
-          </p>
         </Rise>
       </div>
 

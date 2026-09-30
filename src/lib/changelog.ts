@@ -1,0 +1,239 @@
+/**
+ * Every CubbyDB release, newest first. Copied from the app's own "What's New"
+ * notes (cubbyDB/src/lib/releaseNotes.ts): when cutting a release, add the
+ * same entry at the top here.
+ */
+export type ChangelogEntry = {
+  version: string;
+  /** YYYY-MM-DD */
+  date: string;
+  sections: { heading: string; items: string[] }[];
+};
+
+export const CHANGELOG: ChangelogEntry[] = [
+  {
+    version: "0.1.20",
+    date: "2026-09-29",
+    sections: [
+      {
+        heading: "CubbyDB is now a paid app",
+        items: [
+          "CubbyDB now costs a one-time price, with every future update included. Everyone gets a 14-day free trial, counted from their first launch of this version, and the top bar shows how many days are left.",
+          "Buy from cubbydb.com/pricing, then paste your license key into Settings → License. One key works on up to 3 of your computers.",
+          "Nothing is lost if your trial runs out: your connections, saved queries, cubbies and history are all still there once you activate.",
+        ],
+      },
+      {
+        heading: "Connections",
+        items: [
+          "Every connection you had open comes back when you relaunch, not just the last one.",
+          "Settings has a new Connections section: connect, edit, disconnect or delete any connection in one place.",
+        ],
+      },
+      {
+        heading: "Tables",
+        items: [
+          "Right-click a table tab to open its structure or ER diagram.",
+          "The Table Structure pane explains each index in plain English.",
+          "Dragging a column past the edge of the results grid scrolls the grid along with it.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.19",
+    date: "2026-09-14",
+    sections: [
+      {
+        heading: "Ask AI",
+        items: [
+          "Attach your app's code repositories to a connection, and the assistant can read them — to explain how your code actually uses a table, or to answer questions about the code itself. It can read your code but never change it, and a repo stays attached to that connection for every later chat.",
+          "Watch the assistant work: each step — querying, searching code, reading a file — appears as it happens. Steps start collapsed; open one to see what it found.",
+          "The assistant can take many more steps before answering, so longer investigations finish instead of stopping early. Press Escape to stop a reply at any time.",
+          "Ask for an UPDATE, DELETE or schema change and the assistant writes the statement out for you to review and run yourself. It still can't run changes on its own, and SQL it didn't run is labelled \"Not run\".",
+          "The message box is roomier, and shows exactly what's sent with your question: the table you're viewing, tables you've attached, and your repos.",
+          "The chat follows along as a reply comes in, and stops if you scroll up to read. Saved chats open at their newest message.",
+        ],
+      },
+      {
+        heading: "Running SQL",
+        items: [
+          "Running a statement that deletes rows or drops a table now asks first, and shows you the statements it found. Turn this off in Settings → General → Confirm destructive statements.",
+        ],
+      },
+      {
+        heading: "Results grid",
+        items: [
+          "The grid uses your system's overlay scrollbars again, the same as every other pane.",
+          "Escape closes the find bar (Cmd/Ctrl+F), even after you've clicked into the results.",
+          "Add row, Import CSV and Remove row no longer get cut off when the window is narrow — the toolbar wraps onto a second line instead.",
+        ],
+      },
+      {
+        heading: "Connections",
+        items: [
+          "Browsing for an SSH private key file on the connection screen works again.",
+        ],
+      },
+      {
+        heading: "Look & feel",
+        items: [
+          "The top bar shows the new CubbyDB logo, and the app icon has been refreshed to match.",
+          "The first tab now sits flush against the sidebar.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.18",
+    date: "2026-09-07",
+    sections: [
+      {
+        heading: "Connections",
+        items: [
+          "A query or Refresh that follows a few minutes of inactivity now checks the connection first and replaces it if it has gone stale — so a suspended serverless compute (Neon and friends) comes back promptly instead of hanging on the operating system's long socket timeout. Nothing polls in the background, so idle computes can still scale to zero.",
+        ],
+      },
+      {
+        heading: "Results grid",
+        items: [
+          "Large pages scroll noticeably better: rows and columns are windowed to the viewport, and a fast scroll no longer flashes blank on tall external monitors.",
+          "The scrollbar has its own gutter, so the sticky header and rows never paint underneath it.",
+        ],
+      },
+      {
+        heading: "Command palette",
+        items: [
+          "The highlighted row in Cmd/Ctrl+K keeps its connection color instead of being flooded with the app accent — so you can still tell which environment a result belongs to before you open it. Previously a selected production row could look like whatever your accent color happened to be.",
+          "New Appearance setting to pick how that row is marked: an outline (the new default) or a solid fill.",
+        ],
+      },
+      {
+        heading: "Top bar & tabs",
+        items: [
+          "The right-hand cluster is quieter: Saved, History and Refresh are icons now, grouped together, with hover labels that name each one and spell out its keyboard shortcut. Ask AI keeps its name, and the Cubby button shows the open cubby's name when there is one.",
+          "Disconnect is gone from the top bar — each connection pill already has its own close button.",
+          "Opening a SQL tab gives the editor a share of the window's real height instead of a fixed 280px, so the results pane no longer starts a third of the way down a large display.",
+          "The tab strip no longer shows a horizontal scrollbar when many tabs are open; it still scrolls by wheel, trackpad or drag.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.17",
+    date: "2026-08-25",
+    sections: [
+      {
+        heading: "Branch tabs",
+        items: [
+          "Open a second, independent view of a table: right-click a table tab for \"Duplicate as Branch\", or right-click a row for \"Open Row in New Branch\" (pre-filtered to just that row). A branch keeps its own filter and sort — clicking into that table from anywhere else always lands on its one main tab, never a branch.",
+        ],
+      },
+      {
+        heading: "Query history",
+        items: [
+          "Cmd/Ctrl+[ and +] now step through the actual queries you've run — the table and WHERE clause — jumping to whichever table a past query was against and re-applying its filter, instead of just switching between tabs.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.16",
+    date: "2026-08-22",
+    sections: [
+      {
+        heading: "AI assistant",
+        items: [
+          "\"Ask AI\" now shows exactly which tables it's using as context — a chip for whichever table you're currently viewing, plus a \"+\" to attach more tables explicitly, regardless of which tab is open.",
+          "More reliable under load: requests now retry automatically on a rate limit or a provider hiccup, Stop actually stops the in-flight request, and a long conversation no longer risks overflowing the model's context window.",
+          "Schema search inside the AI now understands multi-word and abbreviated queries (\"customer orders\" can find a table named cust_ord_hdr), not just exact substrings.",
+          "New opt-in AI audit log — a full record of what was sent to the model and what it did, viewable as a second tab in History. Off by default.",
+        ],
+      },
+      {
+        heading: "Schema Compare & ER diagrams",
+        items: [
+          "Schema Compare: diff two schemas — even across two different connections — and generate a migration script. CubbyDB never runs it for you; it's something to review and run yourself.",
+          "ER diagrams: right-click a table for a visual map of it and everything directly connected to it, with draggable, collapsible table cards.",
+          "Triggers and Row-Level Security policies now show up in a table's structure panel instead of being invisible.",
+        ],
+      },
+      {
+        heading: "Connections",
+        items: [
+          "Read-only connection mode blocks every write on a connection at the app level, independent of what the database role itself allows.",
+          "SSH tunneling: connect to a database behind a bastion host, with host-key verification the first time you connect.",
+        ],
+      },
+      {
+        heading: "Fixes",
+        items: [
+          "Generate random UUID now works on text/varchar columns storing UUIDs as strings, not just native uuid columns.",
+          "Set to NULL on a multi-cell selection now clears every selected column, not just one.",
+          "Right-clicking a multi-cell range on a read-only connection no longer shows an empty menu.",
+          "Viewing a function's definition could fail to load; fixed.",
+          "New setting to turn off the small kind icon (table/query/function/…) shown on each tab.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.13",
+    date: "2026-08-18",
+    sections: [
+      {
+        heading: "Selecting & editing multiple rows",
+        items: [
+          "Drag across cells (or Shift-click a second cell) to select a block spanning several rows — the same accent outline a single click gets, just around the whole selection.",
+          "With a range selected: Remove deletes every row it touches, Cmd/Ctrl+V pastes one value into every cell it spans, and right-click offers Generate random UUIDs / Set to NULL for all of them at once instead of one cell at a time.",
+          "Right-click a foreign-key or primary-key cell in a selected range to jump to related rows using every id in the selection (\"IN (...)\"), not just the one cell you clicked.",
+          "The foreign-key jump menu is keyboard-navigable — arrow keys move through the table list (even while typing a filter), Enter jumps.",
+          "Right-click a UUID cell — existing row, new row, or a whole selected range — for Generate random UUID.",
+        ],
+      },
+      {
+        heading: "Cubbies",
+        items: [
+          "Save named groups of tables, saved queries, and AI chats scoped to a connection, pin them in the schema tree, and reopen every tab in one click.",
+          "Available from the schema tree, the tab bar, Cmd/Ctrl+K, and two dedicated keyboard shortcuts.",
+        ],
+      },
+      {
+        heading: "Tabs & browsing",
+        items: [
+          "Tabs are fixed-width with a hover tooltip for long titles, and an active tab picks up its connection's own accent color when one is set.",
+          "Double-click a column's resize handle to fit it to its contents; first-load column widths now measure real rendered text instead of an approximation.",
+          "The app no longer opens a blank query tab on connect — an empty state points you at the sidebar or Cmd/Ctrl+K instead.",
+        ],
+      },
+      {
+        heading: "Fixes",
+        items: [
+          "The \"Edit connection\" modal was rendering behind the results grid.",
+          "A few icon buttons — including the tab bar itself — were missing a pointer cursor on hover.",
+        ],
+      },
+    ],
+  },
+  {
+    version: "0.1.12",
+    date: "2026-08-14",
+    sections: [
+      {
+        heading: "Cubbies",
+        items: ["Introducing Cubbies — a first pass at named, saveable collections of database objects."],
+      },
+      {
+        heading: "Results grid",
+        items: [
+          "Long cell values can now be expanded into a full, read-only view instead of just truncating.",
+          "Rows referencing a foreign key are now listed alphabetically by table.",
+        ],
+      },
+      {
+        heading: "Tabs",
+        items: ["The app opens to a calmer empty state instead of an unused blank query tab."],
+      },
+    ],
+  },
+];

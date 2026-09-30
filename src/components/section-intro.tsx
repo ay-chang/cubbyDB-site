@@ -6,6 +6,8 @@ type SectionIntroProps = {
   title: string;
   lede?: string;
   align?: "center" | "left";
+  /** h1 when the section opens its page. */
+  as?: "h1" | "h2";
 };
 
 /**
@@ -22,6 +24,7 @@ export function SectionIntro({
   title,
   lede,
   align = "center",
+  as: Heading = "h2",
 }: SectionIntroProps) {
   const centered = align === "center";
 
@@ -30,11 +33,11 @@ export function SectionIntro({
       <Reveal>
         <p className="text-[14px] font-medium text-[#1aa35e]">{eyebrow}</p>
       </Reveal>
-      <h2
+      <Heading
         className={`mt-4 max-w-[20ch] text-balance font-serif-hero text-[clamp(2.2rem,4.2vw,3.5rem)] leading-[1.05] tracking-[-0.005em] text-[#141820] ${centered ? "mx-auto" : ""}`}
       >
         <WordReveal text={title} delay={0.1} />
-      </h2>
+      </Heading>
       {lede && (
         <Reveal delay={0.45}>
           <p

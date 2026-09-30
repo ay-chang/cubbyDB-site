@@ -35,7 +35,7 @@ export function SiteHeader({ macDownload }: SiteHeaderProps) {
 
       <nav className="flex items-center gap-1.5 text-[14.5px]">
         <Link
-          href="/#ask-ai"
+          href="/features"
           className="hidden rounded-full px-4 py-[9px] text-[rgba(27,31,38,0.7)] transition-colors hover:text-[#1aa35e] sm:inline-block"
         >
           Features

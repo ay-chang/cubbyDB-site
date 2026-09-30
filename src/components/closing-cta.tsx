@@ -32,11 +32,11 @@ export function ClosingCta({ macDownload }: ClosingCtaProps) {
             />
           </svg>
           <h2 className="mx-auto mt-8 max-w-[18ch] text-balance font-serif-hero text-[clamp(2.4rem,4.6vw,3.9rem)] leading-[1.04] text-white">
-            Open the database you already have.
+            Try it on your own database.
           </h2>
           <p className="mx-auto mt-5 max-w-[48ch] text-[17px] leading-[1.6] text-[rgba(255,255,255,0.6)]">
-            A Postgres client for macOS, Windows, and Linux. Free for {TRIAL_DAYS} days, then{" "}
-            {PRICE} once — yours for good.
+            Every feature is free for {TRIAL_DAYS} days, with no account and no card. If it earns
+            a place in your day, it&rsquo;s {PRICE} once.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
@@ -46,13 +46,13 @@ export function ClosingCta({ macDownload }: ClosingCtaProps) {
                 : { target: "_blank", rel: "noreferrer" })}
               className="pressable rounded-full bg-white px-8 py-4 text-[15.5px] font-medium text-[#141820] hover:bg-[#eef2ef]"
             >
-              Download for macOS
+              Download free trial
             </a>
             <Link
               href="/pricing"
               className="pressable rounded-full border border-[rgba(255,255,255,0.18)] px-8 py-4 text-[15.5px] font-medium text-white hover:border-[rgba(255,255,255,0.35)]"
             >
-              Buy CubbyDB
+              Buy once for {PRICE}
             </Link>
           </div>
           <p className="mt-6 text-[13.5px] text-[rgba(255,255,255,0.4)]">

@@ -11,16 +11,16 @@ const ENTRIES = [
 
 const POINTS = [
   {
-    title: "References, not copies",
-    body: "A cubby stores what a saved query, table, or chat is — not a copy of it. Edit the query elsewhere and every cubby pointing at it stays current. Delete the cubby and the thing it pointed at is untouched.",
+    title: "Links, not copies",
+    body: "A cubby points to your tables and saved queries instead of copying them. Edit a query anywhere and every cubby stays up to date, and deleting a cubby never deletes what's in it.",
   },
   {
-    title: "Its tables sit above your schema tree",
-    body: "Open a cubby and its tables collect in their own section at the top of the tree, so you're not hunting for them — the search box still filters your whole schema, not just what's pinned.",
+    title: "Its tables stay on top",
+    body: "While a cubby is open, its tables sit at the top of the schema tree, so you're not scrolling through hundreds of tables to find the five you need.",
   },
   {
-    title: "Ask AI already knows what's in it",
-    body: "While a cubby is open, its tables go to Ask AI in full column detail on every question — even on a schema large enough that everything else gets abbreviated.",
+    title: "The AI knows what you're working on",
+    body: "Ask AI gets full detail on a cubby's tables with every question, even when the rest of a large schema has to be summarized.",
   },
 ];
 
@@ -91,8 +91,8 @@ export function CubbiesSection() {
           <SectionIntro
             align="left"
             eyebrow="Cubbies"
-            title="Put the work down. Pick it back up."
-            lede="A named group of tables, saved queries, AI chats, and structure views for one task. Open it later and every tab comes back at once."
+            title="Pick up right where you left off."
+            lede="A cubby holds the tables, saved queries, and AI chats for one task. Open it next week and every tab comes back at once."
           />
           <dl className="mt-9 flex flex-col gap-6">
             {POINTS.map((point, i) => (

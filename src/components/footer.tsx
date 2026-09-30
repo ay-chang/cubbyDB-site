@@ -29,7 +29,7 @@ export function Footer({ macDownload }: FooterProps) {
           </span>
         </div>
         <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
-          <Link href="/#ask-ai" className={linkClass}>
+          <Link href="/features" className={linkClass}>
             Features
           </Link>
           <Link href="/pricing" className={linkClass}>
@@ -44,9 +44,15 @@ export function Footer({ macDownload }: FooterProps) {
           >
             Download
           </a>
+          <Link href="/changelog" className={linkClass}>
+            Changelog
+          </Link>
           <a href={`mailto:${SUPPORT_EMAIL}`} className={linkClass}>
             Support
           </a>
+          <Link href="/privacy" className={linkClass}>
+            Privacy
+          </Link>
           <Link href="/terms" className={linkClass}>
             Terms
           </Link>

@@ -30,15 +30,18 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "CubbyDB - a desktop Postgres client that's pleasant to use",
+  metadataBase: new URL("https://cubbydb.com"),
+  title: "CubbyDB — A better home for your Postgres databases",
   description:
-    "Schema tree, SQL editor, editable results grid, and a command palette. Native on macOS, Windows, and Linux — try it free for 14 days.",
+    "A Postgres client for Mac, Windows, and Linux with an AI assistant that can read everything and change nothing. Free for 14 days, then $20 once.",
   openGraph: {
-    title: "CubbyDB",
+    title: "CubbyDB — A better home for your Postgres databases",
     description:
-      "A desktop Postgres client that's pleasant to use. Try it free for 14 days.",
+      "A Postgres client with a read-only AI assistant. Free for 14 days, then $20 once.",
     type: "website",
+    siteName: "CubbyDB",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
